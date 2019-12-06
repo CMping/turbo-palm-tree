@@ -58,7 +58,7 @@ public class BulkMail extends ActionSupport implements SessionAware{
 						.buildEmail();
 			
 				mailer = MailerBuilder
-						.withSMTPServer("smtp.gmail.com", 587, "yhuang0021@gmail.com", "P@ssw0rdping")
+						.withSMTPServer("smtp.gmail.com", 587, "youremail", "yourpassword")
 						.withTransportStrategy(TransportStrategy.SMTP_TLS)
 						.buildMailer();
 	
