@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="struts" extends="struts-default">
+	
+		<action name="">
+			<result>/index.jsp</result>
+		</action>
+		
+		<action name="home">
+			<result>/index.jsp</result>
+		</action>
+		
+		<action name="privacyPolicy">
+			<result>/privacypolicy.jsp</result>
+		</action>
+		
+		<action name="siteMap" class="org.apache.struts.user.action.SiteMap" method="execute">
+			<result name="ADMIN">/admin/adminsitemap.jsp</result>
+			<result name="USER">/user/usersitemap.jsp</result>
+			<result name="PUBLIC">/sitemap.jsp</result>
+		</action>
+		
+		<action name="loginPage">
+			<result>/login.jsp</result>
+		</action>
+		<action name="login" class="org.apache.struts.user.action.LoginUser" method="execute">
+			<result name="SUCCESS">/user/userhome.jsp</result>
+			<result name="FAILURE">/login.jsp</result>
+			<result name="ADMINSUCCESS">/admin/adminhome.jsp</result>
+		</action>
+		
+		<action name="registerPage">
+			<result>/register.jsp</result>
+		</action>
+		
+		<action name="register" class="org.apache.struts.user.action.RegisterUser" method="execute">
+			<result name="success">/thankyou.jsp</result>
+			<result name="FAILURE">/register.jsp</result>
+			<result name="input">/register.jsp</result>
+		</action>
+		
+		<action name="forgetPasswordPage">
+			<result>/forgetpassword.jsp</result>
+		</action>
+		
+		<action name="forgetPassword" class="org.apache.struts.user.action.ForgetPassword" method="execute">	
+			<result name="input">/forgetpassword.jsp</result>
+			<result name="SUCCESS">/forgetpassword.jsp</result>
+			<result name="FAILURE">/forgetpassword.jsp</result>
+		</action>
+		
+		<action name="viewProfile" class="org.apache.struts.user.action.ViewProfile" method="execute">
+			<result name="input">/user/userhome.jsp</result>
+			<result name="SUCCESS">/user/userhome.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="updateProfile" class="org.apache.struts.user.action.UpdateProfile">
+			<result name="UPDATE">/user/userupdate.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+			<result name="input">/user/userupdate.jsp</result>
+		</action>
+		
+		<action name="logout" class="org.apache.struts.user.action.LoginUser" method="logout">
+            <result name="SUCCESS">/index.jsp</result>
+        </action>
+
+		<action name="searchProfile" class="org.apache.struts.user.action.SearchProfileAction">
+			<result name="SEARCHPROFILE">/user/usersearchresult.jsp</result>
+			<result name="HOME">/user/usersearchresult.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="publicProfile" class="org.apache.struts.user.action.PublicProfile">
+			<result name="Profile">/user/publicprofile.jsp</result>
+			<result name="failure">/user/userhome.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="viewJobs" class="org.apache.struts.job.action.ViewJob" method="execute">
+			<result name="input">/user/job.jsp</result>
+			<result name="SUCCESS">/user/job.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="postJobPage" class="org.apache.struts.job.action.ViewPostJob" method="execute">
+			<result name="input">/user/job.jsp</result>
+			<result name="SUCCESS">/user/postjob.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="createJob" class="org.apache.struts.job.action.CreateJob" method="execute">		
+			<result name="input">/user/postjob.jsp</result>
+			<result name="success">/user/postjob.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="searchJob" class="org.apache.struts.job.action.SearchJob">
+			<result name="SEARCHJOB">/user/jobsearchresult.jsp</result>
+			<result name="HOME">/user/jobsearchresult.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="jobDetails" class="org.apache.struts.job.action.JobDetails">
+			<result name="JOB">/user/jobdetails.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="manageJobPage" class="org.apache.struts.job.action.ViewManageJob">
+			<result name="MANAGEJOB">/user/managejob.jsp</result>
+			<result name="failure">/user/userhome.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="updateJob" class="org.apache.struts.job.action.UpdateJob">
+			<result name="UPDATE">/user/jobupdate.jsp</result>
+			<result name="FAILURE">/login.jsp</result>
+		</action>
+		
+		<action name="deleteJob" class="org.apache.struts.job.action.DeleteJob">
+			<result name="DELETE">/user/jobdelete.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="jobReply" class="org.apache.struts.job.action.CreateJobReply">
+			<result name="JOB">/user/jobdetails.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="createAdminPage" class="org.apache.struts.user.action.ViewCreateAdmin">
+			<result name="SUCCESS">/admin/admincreateadmin.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="createAdmin" class="org.apache.struts.user.action.CreateAdmin" method="execute">
+			<result name="success">/admin/admincreateadmin.jsp</result>
+			<result name="input">/admin/admincreateadmin.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="addReceipient" class="org.apache.struts.user.action.AddReceipient" method="execute">
+			<result name="success">/admin/adminsendemail.jsp</result>
+			<result name="FAILURE">/admin/adminsendemail.jsp</result>
+			<result name="input">/admin/adminsendemail.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="deleteReceipient" class="org.apache.struts.user.action.DeleteReceipient">
+			<result name="SUCCESS">/admin/adminsendemail.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="sendMail" class="org.apache.struts.user.action.BulkMail" method="execute">
+			<result name="success">/admin/adminsendemail.jsp</result>
+			<result name="input">/admin/adminsendemail.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="adminSearch" class="org.apache.struts.user.action.AdminSearch">
+			<result name="ADMINSEARCHPROFILE">/admin/adminsearchresult.jsp</result>
+			<result name="HOME">/admin/adminsearchresult.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="adminUpdateProfile" class="org.apache.struts.user.action.AdminUpdate">
+			<result name="UPDATE">/admin/adminupdate.jsp</result>
+			<result name="FAILURE">/login.jsp</result>
+		</action>
+		
+		<action name="adminDeleteProfile" class="org.apache.struts.user.action.AdminDelete">
+			<result name="DELETE">/admin/admindelete.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+		<action name="sendBulkEmail" class="org.apache.struts.user.action.FetchReceipient">
+			<result name="success">/admin/adminsendemail.jsp</result>
+			<result name="LOGIN">/login.jsp</result>
+		</action>
+		
+	</package>
+</struts>
